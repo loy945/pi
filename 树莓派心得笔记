@@ -1,0 +1,49 @@
+树莓派心得笔记
+1、连接WIFI SSH登陆
+	新建ssh文件  
+	新建 wpa_supplicant.conf
+		country=CN
+		ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+		update_config=1
+		 
+		network={
+		ssid="WiFi-A"
+		psk="12345678"
+		key_mgmt=WPA-PSK
+		priority=1
+		}
+		 
+		network={
+		ssid="WiFi-B"
+		psk="12345678"
+		key_mgmt=WPA-PSK
+		priority=2
+		scan_ssid=1
+		}
+	Advanced IP Scanner 扫描 IP  putty登陆
+ 	默认账号密码：pi raspberry  
+2、改配置
+	/etc/vsftpd.conf
+	sudo passwd root
+	sudo passwd --unlock root
+	su
+	换源 sudo nano /etc/apt/sources.list
+			deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ stretch main contrib non-free rpi
+			deb-src http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ stretch main contrib non-free rpi
+		sudo nano /etc/apt/sources.list.d/raspi.list
+			deb http://mirror.tuna.tsinghua.edu.cn/raspberrypi/ stretch main ui
+			deb-src http://mirror.tuna.tsinghua.edu.cn/raspberrypi/ stretch main ui
+	参考 https://blog.csdn.net/la9998372/article/details/77886806
+
+
+3、连sftp
+	下载FileZilla Client
+	权限：su root 打sudo chmod 777 / 
+
+4、常用命令
+	cd  ls  sudu su
+	sudu halt
+	sudo install/remove
+
+5、git 
+6、python
